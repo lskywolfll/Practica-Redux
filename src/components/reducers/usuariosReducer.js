@@ -1,10 +1,12 @@
+import { TRAER_USUARIOS } from '../actions/usuariosAction';
+
 const INITIAL_STATE = {
     usuarios: []
 };
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case 'TRAER_USUARIOS':
+        case TRAER_USUARIOS:
             return {
                 ...state,
                 usuarios: action.payload

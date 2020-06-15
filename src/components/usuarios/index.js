@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import axios from 'axios';
 import './index.css'
 import { connect } from 'react-redux';
+import * as usuariosActions from '../actions/usuariosAction';
 
 class Usuarios extends Component {
 
@@ -12,13 +13,9 @@ class Usuarios extends Component {
         }
     }
 
-    // async componentDidMount() {
-    //     const { data } = await axios.get('http://jsonplaceholder.typicode.com/users');
-
-    //     this.setState({
-    //         usuarios: data
-    //     })
-    // }
+    componentDidMount() {
+        this.props.traerTodos();
+    }
 
     ponerFilas = () => (
         this.props.usuarios.map(({ name, email, website }, posicion) => (
@@ -31,6 +28,7 @@ class Usuarios extends Component {
     )
 
     render() {
+        console.log(this.props)
         return (
             <div>
                 <table className="tabla">
@@ -62,11 +60,11 @@ const EstadosAPropiedades = estado => {
     };
 };
 
-// Funciones usadas por props
-const CambiosDeEstados = accion => {
-    return {
-        obtenerUsuarios: () => accion({ type: 'TRAER_USUARIOS' }),
-    };
-};
+// // Funciones usadas por props
+// const CambiosDeEstados = accion => {
+//     return {
+//         obtenerUsuarios: () => accion({ type: 'TRAER_USUARIOS' }),
+//     };
+// };
 
-export default connect(EstadosAPropiedades, CambiosDeEstados)(Usuarios);
+export default connect(EstadosAPropiedades, usuariosActions)(Usuarios);
