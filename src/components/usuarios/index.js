@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import './index.css'
 import { connect } from 'react-redux';
 import * as usuariosActions from '../actions/usuariosAction';
+import Loading from '../Loading/loading';
 
 class Usuarios extends Component {
 
@@ -34,7 +35,7 @@ class Usuarios extends Component {
         }
 
         if (this.props.loading) {
-            return (<div>Loading...</div>)
+            return (<Loading />)
         }
 
         return (
