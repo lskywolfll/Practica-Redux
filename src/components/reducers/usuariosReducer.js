@@ -11,12 +11,14 @@ export default (state = INITIAL_STATE, { type, payload }) => {
         case TRAER_USUARIOS:
             return {
                 ...state,
-                usuarios: payload
+                usuarios: payload,
+                loading: false
             }
         case ERROR:
             return {
                 ...state,
-                error: payload
+                error: payload,
+                loading: false
             }
         case LOADING:
             return {
