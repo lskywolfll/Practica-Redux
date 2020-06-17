@@ -28,7 +28,12 @@ class Usuarios extends Component {
     )
 
     render() {
-        console.log(this.props)
+        // console.log(this.props)
+
+        if (this.props.error) {
+            return (<div>{this.props.error}</div>)
+        }
+
         return (
             <div>
                 <table className="tabla">
@@ -54,17 +59,11 @@ class Usuarios extends Component {
 // El capturador de los estados que requiere este componente para reaccion de manera dinamica
 // Los estados lo convertiremos en propiedades(props) la cual podremos usar de forma unica en nuestro componente
 // or mapStateToProps
-const EstadosAPropiedades = estado => {
+const EstadosAPropiedades = ({ UsuarioReducer: { usuarios, error } }) => {
     return {
-        usuarios: estado.UsuarioReducer.usuarios
+        usuarios,
+        error
     };
 };
-
-// // Funciones usadas por props
-// const CambiosDeEstados = accion => {
-//     return {
-//         obtenerUsuarios: () => accion({ type: 'TRAER_USUARIOS' }),
-//     };
-// };
 
 export default connect(EstadosAPropiedades, usuariosActions)(Usuarios);
