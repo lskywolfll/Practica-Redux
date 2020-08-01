@@ -4,6 +4,7 @@ import './index.css'
 import { connect } from 'react-redux';
 import * as usuariosActions from '../actions/usuariosAction';
 import Loading from '../Loading/loading';
+import Error from '../Error/error';
 
 class Usuarios extends Component {
 
@@ -31,7 +32,7 @@ class Usuarios extends Component {
     render() {
 
         if (this.props.error) {
-            return (<div>{this.props.error}</div>)
+            return (<Error error={this.props.error} />)
         }
 
         if (this.props.loading) {
