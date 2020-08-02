@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import './styles/menu.css'
+import 'antd/dist/antd.css'
 
 function menu() {
     return (

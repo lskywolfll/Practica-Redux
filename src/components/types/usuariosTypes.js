@@ -1,3 +1,5 @@
 export const TRAER_USUARIOS = 'TRAER_USUARIOS';
 export const ERROR = 'ERROR';
 export const LOADING = 'LOADING';
+export const TRAER_USUARIO_POR_ID = "TRAER_USUARIO_POR_ID";
+export const TRAER_POST_POR_USUARIO_ID = "TRAER_POST_POR_USUARIO_ID";
