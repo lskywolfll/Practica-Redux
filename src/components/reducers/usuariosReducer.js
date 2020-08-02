@@ -1,4 +1,4 @@
-import { TRAER_USUARIOS, ERROR, LOADING, TRAER_POST_POR_USUARIO_ID, TRAER_USUARIO_POR_ID } from '../types/usuariosTypes';
+import { TRAER_USUARIOS, ERROR, LOADING, TRAER_USUARIO_POR_ID } from '../types/usuariosTypes';
 
 const INITIAL_STATE = {
     usuarios: [],
@@ -7,7 +7,6 @@ const INITIAL_STATE = {
     usuario: {
         name: ''
     },
-    post: []
 };
 
 export default (state = INITIAL_STATE, { type, payload }) => {
@@ -28,12 +27,6 @@ export default (state = INITIAL_STATE, { type, payload }) => {
             return {
                 ...state,
                 loading: true
-            }
-        case TRAER_POST_POR_USUARIO_ID:
-            return {
-                ...state,
-                loading: false,
-                post: payload
             }
         case TRAER_USUARIO_POR_ID:
             return {
