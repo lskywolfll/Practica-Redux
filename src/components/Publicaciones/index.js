@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import * as usuariosActions from '../actions/usuariosAction';
+// import * as publicacionesActions from '../actions/publicacionesActions';
 import './index.css'
 
 class Publicaciones extends Component {
@@ -50,5 +51,9 @@ const EstadosAPropiedades = ({ UsuarioReducer: { usuarios, error, loading, usuar
     };
 };
 
+// const AccionesAPropiedades = {
+//     ...usuariosActions,
+//     ...publicacionesActions
+// }
 
 export default connect(EstadosAPropiedades, usuariosActions)(Publicaciones);
