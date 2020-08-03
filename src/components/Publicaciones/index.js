@@ -11,7 +11,7 @@ class Publicaciones extends Component {
     }
 
     componentDidMount() {
-        const id = this.props.match.params.id;
+        const id = parseInt(this.props.match.params.id);
 
         this.props.traerUsuarioPorId(id);
         this.props.traer_Las_Publicaciones_Por_Usuario_ID(id);

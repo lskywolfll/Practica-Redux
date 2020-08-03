@@ -6,13 +6,23 @@ import {
 import axios from 'axios';
 import { notification } from 'antd';
 
-export const traer_Las_Publicaciones_Por_Usuario_ID = (id) => async (dispatch) => {
+export const traer_Las_Publicaciones_Por_Usuario_ID = (id) => async (dispatch, getState) => {
+
+    const store = getState().PublicacionesReducer;
+    const { publicaciones } = store;
+
+    if (publicaciones.length >= 1) {
+        if (publicaciones[0].userId === id) {
+            return;
+        }
+    }
 
     dispatch({
         type: LOADING_EN_PUBLICACIONES
     });
 
     try {
+
         const { data } = await axios.get(`https://jsonplaceholder.typicode.com/users/${id}/posts`);
 
         notification.success({

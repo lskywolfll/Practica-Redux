@@ -37,7 +37,15 @@ export const traerTodos = () => async (dispatch) => {
     }
 };
 
-export const traerUsuarioPorId = (id) => async (dispatch) => {
+export const traerUsuarioPorId = (id) => async (dispatch, getState) => {
+    const store = getState().UsuarioReducer;
+    const { usuario } = store;
+
+    if (usuario['name'] !== '') {
+        if (usuario['id'] === id) {
+            return;
+        }
+    }
 
     dispatch({
         type: LOADING
@@ -48,7 +56,6 @@ export const traerUsuarioPorId = (id) => async (dispatch) => {
         description: 'Pronto podras ver quien hizo las publicaciones',
         duration: 1
     })
-
 
     try {
 
